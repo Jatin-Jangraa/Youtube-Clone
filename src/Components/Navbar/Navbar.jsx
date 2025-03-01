@@ -26,11 +26,10 @@ const Navbar = ({setinput,fetchData}) => {
           <TiThMenu />
         </div>
         
-        <div className="img">
+        <Link to="/"  className="img">
           <img className=" img-you" src={assets.You} alt="" />
-          
-          
-        </div>
+
+        </Link>
 
       </div>
 
