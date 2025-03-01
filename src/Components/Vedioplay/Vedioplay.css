@@ -1,0 +1,207 @@
+.play{
+    height: 70vh;
+    width: 58vw;
+}
+
+
+.play  iframe{
+    height: 65vh;
+    width: 58vw;
+   
+}
+
+.heading{
+    font-size: 1.3rem;
+    font-weight: 00;
+    padding-left: 2px;
+    padding-bottom: 2px;
+}
+
+.photo{
+    background-color: antiquewhite;
+    border-radius: 50px;
+    height: 45px;
+    width: 45px;
+    object-fit:cover;
+}
+
+
+.img{
+    border-radius: 50px;
+    height: 45px;
+    width: 45px;
+    object-fit:cover;
+    
+}
+
+.leftdata{
+    padding-left: 10px;
+    display: flex;
+    height: 45px;
+ 
+    align-items: center;
+    gap: 20px;
+}
+
+.button{
+    margin-left: 30px;
+    height: 85%;
+    width: 88px;
+    border-radius: 20px;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: none;
+    font-size: .9rem;
+    font-weight: 300;
+
+}
+.button:hover{
+    cursor: pointer;
+    margin-left: 30px;
+    height: 85%;
+    width: 88px;
+    border-radius: 20px;
+    color: rgb(13, 4, 4);
+    background-color: rgb(218, 56, 56);
+    outline: none;
+    border: none;
+    font-size: 1rem;
+
+}
+
+.right-data{
+ 
+    height: 45px;
+    display: flex;
+    gap: 20px;
+    
+    
+}
+
+.time{
+    display: flex;
+}
+
+.count{
+    margin-top: 5px;
+    font-size: .8rem;
+    margin-left: 13px;
+}
+
+.data{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1vh;
+}
+
+.like{
+    display: flex;
+    height: 70%;
+    /* background-color: aquamarine; */
+    align-items: center;
+    font-size: 1rem;
+    padding-left: 10px;
+    border-right: 1.4px solid black;
+    padding-right: 6px;
+
+}
+.unlike{
+    display: flex;
+    height: 70%;
+   padding-left: 4px;
+    align-items: center;
+    font-size: 1rem;
+    padding-right: 10px;
+    
+}
+
+.likke{
+    gap: 0px;
+    display: flex;
+    margin-top: 2px;
+    align-items: center;
+    padding-left:0px;
+    border-radius: 20px;
+    height: 80%;
+    background-color: rgb(231, 228, 224);
+}
+
+.sharebutton{
+    height: 90%;
+    height: 85%;
+    width: 88px;
+    border-radius: 20px;
+    color: black;
+    background-color:rgb(231, 228, 224);
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 300;   
+}
+
+
+.option{
+    height: 90%;
+    height: 85%;
+    width: 40px;
+    border-radius: 20px;
+    color: black;
+    background-color:rgb(231, 228, 224);
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    padding-top: 2px;
+    
+}
+
+
+@media (max-width:430px) {
+
+    .play{
+        height: 45vh;
+        width: 100vw;
+        margin: 0px;
+        padding-top: 10px;
+    }
+    
+    
+    .play  iframe{
+        height: 25vh;
+        width: 100%;
+       margin-top: -50px;
+       margin-left: -9px;
+    }
+
+    .button{
+        display: none;
+    }
+
+    .sharebutton{
+        display: none;
+    }
+
+    .right-data{
+ 
+        height: 45px;
+        display: flex;
+        gap: 2px;
+        margin-right: 10px;
+        
+        
+    }
+
+    .leftdata{
+        gap: 2px;
+    }
+
+
+    .data{
+        margin-left: -9px;
+        width: 100vw;
+        padding-bottom: 8px;
+        border-bottom: 0.4px solid black;
+        border-top: 0.4px solid black;
+        padding-top: 10px;
+    }
+}

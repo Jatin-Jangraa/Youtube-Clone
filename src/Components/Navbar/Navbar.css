@@ -9,10 +9,13 @@ object-fit: fit;
 
 .flex-div{
     display: flex;
+    width: 100%;
     justify-content: space-between;
     padding-bottom: 6px;
     border-bottom: .3px solid rgb(194, 191, 191);
-    position: sticky;
+    position: fixed;
+    top: 0px;
+    background-color: white;
 
    
 }
@@ -157,11 +160,11 @@ gap: 15px;
 
     .right .bell{
         background-color:rgb(230, 230, 230) ;
-        height: 30px;
+        height: 25px;
         margin-top:0px;
         display: flex;
         align-items: center;
-        width: 30px;
+        width: 25px;
         border-radius: 50px;
         justify-content: center;
     }
@@ -176,5 +179,21 @@ gap: 15px;
         border-radius: 50px;
         justify-content: center;
         font-size: 50px;
+    }
+
+    .flex-div{
+        display:flex;
+        width: 100vw;
+        margin-top: 0px;
+    
+    }
+
+    .right{
+        gap: 4px;
+        padding-right: 2px;
+    }
+
+    .left{
+        gap: -5px;
     }
 }

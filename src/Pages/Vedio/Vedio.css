@@ -1,0 +1,24 @@
+.vedio-box {
+    
+    padding-top: 13vh;
+    padding-left: 2vw;
+    display: flex;
+    width: 90vw;
+}
+
+
+@media (max-width:430px) {
+    .vedio-box{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .vedio-box{
+        width: 80vw;
+    }
+
+
+}
+
+
+

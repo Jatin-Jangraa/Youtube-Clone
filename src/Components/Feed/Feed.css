@@ -1,0 +1,174 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-left: 6vw;
+    margin-left: 45px;
+    padding-left: 3vw;
+    margin-left: 2px;
+    
+}
+
+.bo{
+    margin-left: 45px;
+    margin-top: 25px;
+}
+
+
+.hlo{
+    margin-top: 15px;
+}
+
+.card{
+    width: 28vw;
+    box-shadow: 5px 5px 15px 1px rgb(166, 178, 182);
+    margin-top: 20px;
+    margin-left: 25px;
+    height: auto;
+    border-radius: 7px;
+    padding-top: 17px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+
+.vedioimage{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 0px;
+    padding-bottom:0px;
+}
+
+.imgg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    padding-left:13px ;
+    height: 60%;
+    width: 100%;
+
+}
+
+.card img{
+    width: 90%;
+    height: 200px;
+    padding-bottom:00px;
+
+}
+
+
+.card .main{
+    margin-left: 0px;
+    margin-top: 0px;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-left: 16px;
+    padding-right: 10px;
+}
+
+.card .font{
+    font-size: 12px;
+    color: rgb(113, 114, 114);
+    padding-top: 5px;
+    padding-left: 17px;
+}
+
+
+.card .bottom{
+    padding-bottom: 0px;
+}
+
+.vedio{
+    display: none;
+}
+
+
+.p{
+    display: flex;
+}
+
+
+
+.pl{
+    margin-bottom: 10px;
+}
+
+@media (max-width:430px) {
+    .card{
+        width: 79vw;
+        height: 27vh;
+        padding-bottom: -5px;
+        margin-left: 12px;
+        padding-bottom: -10px;
+        margin-bottom: -0px;
+        margin-top: 10px;
+    }
+
+.main{
+    margin-top: 0px;
+}
+
+.hlo{
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+
+    .p{
+        padding-bottom: 0px;
+        margin-bottom: -10px;
+
+    }
+
+    .main{
+        font-size: 10px;
+    }
+
+    .vedioimage{
+        display: flex;
+        align-items: center;
+       
+    }
+
+    .card .imgg{
+        padding-top: 10px;
+        width: 90%;
+        height: 50%;
+        margin-left: 14px;
+    
+    margin-bottom: 20px;
+    }
+
+    .card .main{
+        margin-top: -15px;
+    }
+
+
+    .card .font{
+        font-size: 12px;
+        color: rgb(113, 114, 114);
+        padding-top:4px;
+        padding-left: px;
+    }
+
+    .main{
+        margin-right: 0px;
+        padding-right: 0px;
+      
+    }
+
+.imgg{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+    
+}
