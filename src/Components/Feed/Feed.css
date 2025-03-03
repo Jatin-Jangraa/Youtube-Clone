@@ -102,6 +102,21 @@
     margin-bottom: 10px;
 }
 
+
+@media (max-width:940px) {
+    .card{
+        width: 43vw;
+        height: 27vh;
+        padding-bottom: -5px;
+        margin-left: 12px;
+        padding-bottom: -10px;
+        margin-bottom: -0px;
+        margin-top: 10px;
+    }
+
+
+}
+
 @media (max-width:430px) {
     .card{
         width: 79vw;
@@ -172,3 +187,5 @@
 }
     
 }
+
+
