@@ -35,7 +35,7 @@ const Navbar = ({setinput,fetchData}) => {
 
       <div className="middle">
         <input type="text" placeholder="Search" onChange={(e)=>
-          setinput(e.target.value)}    />
+          setinput(e.target.value)}  onKeyPress={fetchData}  />
          
           
         <div className="search" onClick={fetchData}>

@@ -54,9 +54,7 @@ useEffect(()=>{
                 </div>
             </div>
 
-            {/* <div className="options">
-            <SlOptionsVertical/>
-            </div> */}
+           
 
         </div>)
 
