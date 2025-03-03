@@ -106,7 +106,7 @@
 @media (max-width:940px) {
     .card{
         width: 43vw;
-        height: 27vh;
+        height: auto;
         padding-bottom: -5px;
         margin-left: 12px;
         padding-bottom: -10px;
