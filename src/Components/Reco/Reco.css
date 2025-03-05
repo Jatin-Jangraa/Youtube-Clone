@@ -5,14 +5,15 @@
 
 
     .container{
-        width: auto;
+        width: 40vw;
         margin-left: 5vw;
         margin-top: 3vh;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        height: 490px;
+        height: 80vh;
         overflow-y: scroll;
+        overflow-x:hidden;
 
               
     }
@@ -34,6 +35,8 @@
     .cards{
         display: flex;
         gap: 7px;
+        width: 100%;
+        
     }
 
 
@@ -75,12 +78,13 @@
        
 
         .container{
-            width: 95vw;           
+            width: 95vw; 
+            
             margin-top: -20px;
             display: flex;
             flex-direction: column;
           
-            height: 340px;
+            height: 38vh;
             overflow-y: scroll;
     
             margin-left: -5px;

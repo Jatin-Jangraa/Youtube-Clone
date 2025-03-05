@@ -7,7 +7,7 @@ import moment from 'moment'
 
 
 
-const Feed = ({category,dataa}) => {
+const Feed = ({category,dataa,input}) => {
   console.log(category)
   
   
@@ -33,7 +33,7 @@ useEffect(()=>{
         return(
           <div className="card">
             <div className="vedioimage"></div>
-          <Link to ={`vedio/${category}/${item.id.videoId}`}
+          <Link to ={`vedio/${category}/${item.id.videoId}/${input}`}
            className="imgg  pl"> <img src={item.snippet.thumbnails.medium.url} alt="" /></Link>
            <p className='main'>{item.snippet.title.slice(0,100)}</p>
            <p className='font'>{item.snippet.channelTitle}</p>
@@ -52,7 +52,7 @@ useEffect(()=>{
         return(
           <div className="card">
             <div className="vedioimage"></div>
-          <Link to ={`vedio/${item.snippet.categoryId}/${item.id}`} className="imgg">
+          <Link to ={`vedio/${item.snippet.categoryId}/${item.id}/""`} className="imgg">
            <img src={item.snippet.thumbnails.medium.url} alt="" /></Link>
            <p className='main'>{item.snippet.title.slice(0,100)}</p>
            <p className='font'>{item.snippet.channelTitle}</p>

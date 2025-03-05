@@ -11,7 +11,7 @@ const router=createBrowserRouter([
   {path:'/',
     element:<Home /> 
    },
-   {path:'/vedio/:categoryId/:vedioId',
+   {path:'/vedio/:categoryId/:vedioId/:input',
   element:<Vedio/>
    }
 ])

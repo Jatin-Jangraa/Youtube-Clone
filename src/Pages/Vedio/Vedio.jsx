@@ -9,12 +9,16 @@ import Navbar from '../../Components/Navbar/Navbar'
 
 const vedio = () => {
 
-  const{vedioId,categoryId}=useParams();
+  const{vedioId,categoryId,input}=useParams();
+
+  console.log(input);
+  console.log(vedioId);
+  
   return (
     <><Navbar/>
     <div className='vedio-box'>
 <Vedioplay vedioId={vedioId}/>
-<Reco   categoryId={categoryId}/>
+<Reco   categoryId={categoryId} input={input}/>
     </div>
     </>
   )

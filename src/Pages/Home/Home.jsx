@@ -40,7 +40,7 @@ const Home = () => {
       <Navbar setinput={setinput} fetchData={fetchData} />
       <div className="data">
         <Header category={category} setCategory={setCategory} />
-        <Feed category={category} dataa={dataa} />
+        <Feed category={category} dataa={dataa} input={input} />
       </div>
 
     </>
