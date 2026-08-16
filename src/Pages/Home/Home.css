@@ -1,9 +1,41 @@
-.data{
-    display: flex;
+.home-page {
+  min-height: calc(100vh - 56px);
 }
 
-.but{
-    height: 200px;
-    width: 200px;
-    background-color: antiquewhite;
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px 16px;
+  padding: 4px 24px 40px;
+}
+
+.feed-sentinel {
+  display: flex;
+  justify-content: center;
+  min-height: 60px;
+}
+
+.feed-end {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  padding: 12px;
+}
+
+.home-empty {
+  padding: 80px 24px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .feed-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    padding: 4px 12px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .feed-grid {
+    grid-template-columns: 1fr;
+  }
 }

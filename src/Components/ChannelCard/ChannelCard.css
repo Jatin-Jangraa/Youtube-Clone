@@ -1,0 +1,83 @@
+.channel-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-elevated);
+}
+
+.channel-card-avatar {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.channel-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.channel-card-avatar-placeholder {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.channel-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.channel-card-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.channel-card-name:hover {
+  color: var(--accent);
+}
+
+.channel-card-handle,
+.channel-card-stats {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.channel-card-desc {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.channel-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .channel-card {
+    flex-wrap: wrap;
+  }
+
+  .channel-card-actions {
+    width: 100%;
+    padding-left: 0;
+  }
+}

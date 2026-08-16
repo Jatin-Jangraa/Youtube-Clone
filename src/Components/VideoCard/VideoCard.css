@@ -1,0 +1,134 @@
+.video-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.video-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.video-card-thumb:hover img {
+  transform: scale(1.04);
+}
+
+.duration-badge {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  padding: 2px 5px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.video-card-body {
+  display: flex;
+  gap: 10px;
+  padding: 10px 2px 0;
+}
+
+.video-card-avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.video-card-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.video-card-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.video-card-channel,
+.video-card-meta {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.video-card-channel:hover {
+  color: var(--text);
+}
+
+.video-card-meta {
+  margin-top: 2px;
+}
+
+/* Row layout (search results / recommendations) */
+.video-card-row {
+  flex-direction: row;
+  gap: 12px;
+}
+
+.video-card-row .video-card-thumb {
+  flex-shrink: 0;
+  width: 168px;
+  aspect-ratio: 16 / 9;
+}
+
+.video-card-row .video-card-body {
+  padding-top: 0;
+}
+
+.video-card-row .video-card-title {
+  font-size: 1rem;
+}
+
+.video-card-row .video-card-avatar {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .video-card-row {
+    flex-direction: column;
+  }
+
+  .video-card-row .video-card-thumb {
+    width: 100%;
+  }
+
+  .video-card-row .video-card-avatar {
+    display: flex;
+  }
+}
