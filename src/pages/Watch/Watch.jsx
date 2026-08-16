@@ -124,6 +124,7 @@ export default function Watch() {
         title: video.snippet.title,
         channelTitle: video.snippet.channelTitle,
         channelId: video.snippet.channelId,
+        categoryId: video.snippet.categoryId,
         thumbnail:
           video.snippet.thumbnails?.medium?.url ||
           video.snippet.thumbnails?.default?.url,

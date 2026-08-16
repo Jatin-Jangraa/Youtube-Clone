@@ -28,12 +28,17 @@ async function getJson(url) {
   return res.json();
 }
 
-export async function fetchPopularVideos(pageToken = "", maxResults = 24) {
+export async function fetchPopularVideos(
+  pageToken = "",
+  maxResults = 24,
+  categoryId = ""
+) {
   const url = buildUrl("videos", {
     part: "snippet,contentDetails,statistics",
     chart: "mostPopular",
     maxResults,
     regionCode: "IN",
+    videoCategoryId: categoryId,
     pageToken,
   });
   const data = await getJson(url);

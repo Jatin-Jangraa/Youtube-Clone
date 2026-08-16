@@ -2,6 +2,21 @@
   min-height: calc(100vh - 56px);
 }
 
+.home-heading {
+  padding: 4px 24px 12px;
+}
+
+.home-heading h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.home-heading p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
 .feed-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -31,6 +46,10 @@
   .feed-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     padding: 4px 12px 40px;
+  }
+
+  .home-heading {
+    padding: 4px 12px 12px;
   }
 }
 
