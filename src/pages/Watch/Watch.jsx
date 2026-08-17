@@ -8,11 +8,10 @@ import { useLibrary } from "../../context/LibraryContext";
 import {
   fetchVideoById,
   fetchChannelById,
-  fetchPopularVideos,
+  fetchRelatedVideos,
 } from "../../services/youtube";
 import { valueConvertor, compactNumber, fromNow } from "../../services/format";
 import VideoCard from "../../components/VideoCard/VideoCard";
-import Comments from "../../components/Comments/Comments";
 import ErrorView from "../../components/ErrorView/ErrorView";
 import Loader from "../../components/Loader/Loader";
 import { useChannelThumbnails } from "../../hooks/useChannelThumbnails";
@@ -20,7 +19,7 @@ import "./Watch.css";
 
 export default function Watch() {
   const { videoId } = useParams();
-  const { current, playVideo, setPlayerTarget, setInWatch } = usePlayer();
+  const { stopPlayer, setInWatch } = usePlayer();
   const {
     recordView,
     toggleLike,
@@ -31,7 +30,6 @@ export default function Watch() {
     subscriptions,
   } = useLibrary();
 
-  const playerRef = useRef(null);
   const [video, setVideo] = useState(null);
   const [channel, setChannel] = useState(null);
   const [recommendations, setRecommendations] = useState([]);
@@ -44,19 +42,9 @@ export default function Watch() {
   const channelThumbnails = useChannelThumbnails(recommendations);
 
   useEffect(() => {
-    setPlayerTarget(playerRef.current);
     setInWatch(true);
-    return () => {
-      setPlayerTarget(null);
-      setInWatch(false);
-    };
-  }, [setPlayerTarget, setInWatch]);
-
-  useEffect(() => {
-    if (current?.videoId !== videoId) {
-      playVideo({ videoId });
-    }
-  }, [videoId, current?.videoId, playVideo]);
+    return () => setInWatch(false);
+  }, [setInWatch]);
 
   useEffect(() => {
     setLoading(true);
@@ -76,20 +64,21 @@ export default function Watch() {
         }
         setVideo(details);
 
-        const [channelResult, recsResult] = await Promise.allSettled([
-          fetchChannelById(details.snippet.channelId),
-          fetchPopularVideos("", 24),
-        ]);
+        const channelResult = await fetchChannelById(
+          details.snippet.channelId
+        ).catch(() => null);
         if (cancelled) return;
-        if (channelResult.status === "fulfilled") {
-          setChannel(channelResult.value);
+        if (channelResult) {
+          setChannel(channelResult);
         }
-        if (recsResult.status === "fulfilled") {
-          setRecommendations(
-            recsResult.value.items.filter(
-              (rec) => (rec.id?.videoId || rec.id) !== videoId
-            )
-          );
+
+        const recs = await fetchRelatedVideos(
+          videoId,
+          details.snippet.categoryId,
+          details.snippet.title
+        ).catch(() => []);
+        if (!cancelled) {
+          setRecommendations(recs);
         }
       } catch (err) {
         if (!cancelled) setError(err.message);
@@ -102,20 +91,6 @@ export default function Watch() {
       cancelled = true;
     };
   }, [videoId]);
-
-  useEffect(() => {
-    if (video) {
-      playVideo({
-        videoId: video.id,
-        title: video.snippet.title,
-        channelTitle: video.snippet.channelTitle,
-        channelId: video.snippet.channelId,
-        thumbnail:
-          video.snippet.thumbnails?.medium?.url ||
-          video.snippet.thumbnails?.default?.url,
-      });
-    }
-  }, [video, playVideo]);
 
   useEffect(() => {
     if (video) {
@@ -153,7 +128,9 @@ export default function Watch() {
 
   const isLiked = liked.some((v) => v.id === videoId);
   const isSaved = watchLater.some((v) => v.id === videoId);
-  const isSubscribed = subscriptions.some((c) => c.id === video?.snippet?.channelId);
+  const isSubscribed = subscriptions.some(
+    (c) => c.id === video?.snippet?.channelId
+  );
 
   const handleLike = () => {
     if (disliked) setDisliked(false);
@@ -171,7 +148,7 @@ export default function Watch() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // clipboard unavailable
+      /* clipboard unavailable */
     }
   };
 
@@ -189,13 +166,14 @@ export default function Watch() {
     <div className="watch-page">
       <div className="watch-main">
         <div className="player-shell">
-          <div className="player-area" ref={playerRef} />
-          {!current && (
-            <div className="player-placeholder">
-              <h3>No video playing</h3>
-              <p>Choose a video from the feed or recommendations.</p>
-            </div>
-          )}
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="youtube-iframe"
+          />
         </div>
 
         <h1 className="watch-title">
@@ -292,12 +270,10 @@ export default function Watch() {
             )}
           </div>
         )}
-
-        <Comments videoId={videoId} />
       </div>
 
       <aside className="watch-side">
-        <h3 className="watch-side-heading">Up next</h3>
+        <h3 className="watch-side-heading">Related videos</h3>
         {recommendations.length === 0 ? (
           <p className="watch-side-empty">No recommendations available.</p>
         ) : (

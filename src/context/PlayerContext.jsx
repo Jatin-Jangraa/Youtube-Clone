@@ -33,8 +33,10 @@ export function PlayerProvider({ children }) {
   const target = playerTarget || offscreenRef.current;
 
   const playVideo = useCallback((video) => {
-    if (video?.videoId) setCurrent(video);
-    setPlaying(true);
+    if (video?.videoId) {
+      setCurrent(video);
+      setPlaying(true);
+    }
   }, []);
 
   const pauseVideo = useCallback(() => {
